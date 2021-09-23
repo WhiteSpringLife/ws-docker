@@ -1,0 +1,14 @@
+{
+  "name": "ws-docker",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WhiteSpringLife/ws-docker.git"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/WhiteSpringLife/ws-docker#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
