@@ -1,0 +1,35 @@
+version: "3.2"
+services:
+  mysql:
+    image: mysql:5.7
+    networks:
+      - backend
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_USER=whspuser
+      - MYSQL_PASSWORD=whsppass
+      - MYSQL_DATABASE=whsp_db
+    volumes:
+      - "./:/docker-entrypoint-initdb.d/"
+    ports:
+      - 3306:3306
+    container_name: whsp-mysql-app
+    restart: always
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:4.7
+    depends_on:
+      - mysql
+    networks:
+      - backend
+    ports:
+      - "30002:80"
+    environment:
+      - PMA_HOST=whsp-mysql-app
+      - PMA_PORT=3306
+    volumes:
+      - /sessions
+    container_name: whsp-phpmyadmin-app
+    restart: always
+networks:
+  frontend:
+  backend:
