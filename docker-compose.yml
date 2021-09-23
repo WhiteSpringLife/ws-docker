@@ -1,5 +1,10 @@
 version: "3.2"
 services:
+  nginx:
+    build: ./nginx
+    ports:
+      - 80:80
+    container_name: whsp-nginx
   mysql:
     image: mysql:5.7
     networks:
@@ -31,5 +36,4 @@ services:
     container_name: whsp-phpmyadmin-app
     restart: always
 networks:
-  frontend:
   backend:
