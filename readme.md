@@ -24,3 +24,7 @@
 3. docker-compose build
 
 4. docker-compose up -d
+
+# php에 접속.
+
+1. http://<ip>:30002/
